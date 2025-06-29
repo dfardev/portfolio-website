@@ -2,9 +2,9 @@ html, body {
   margin: 0;
   padding: 0;
 }
-body {
+/* body {
   padding-top: 70px;
-}
+} */
 .sticky-top {
   z-index: 1020;
 }
