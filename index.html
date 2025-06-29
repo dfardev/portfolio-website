@@ -1,47 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="portfolioApp">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Game Design Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Don's Portfolio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+<!-- Removed inline styles -->
+
+    body { padding-top: 70px; }
+    .sticky-top { z-index: 1020; }
+    .about-img { max-width: 100%; height: auto; }
+    .resume-viewer iframe { width: 100%; height: 600px; border: none; }
+    .footer-icons i { font-size: 24px; margin: 10px; }
+  
 </head>
-<body>
-  <header>
+<body ng-controller="MainController">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top">
     <div class="container">
-      <h1 class="logo">My Game Design Portfolio</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
+      <a class="navbar-brand" href="#">Don's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
-  <main class="container">
-    <section class="intro">
+  </nav>
+  <div class="container">
+    <section class="my-5">
       <h2>About Me</h2>
-      <div class="about-section">
-        <p>I'm a passionate game designer focused on immersive storytelling and engaging mechanics.</p>
-        <img src="images/profile.jpg" alt="Profile Photo" class="about-img" />
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p>Hi, I'm Don, a technical game designer based in the Greater Seattle Area. I specialize in designing, scripting, and implementing gameplay systems and tools. With a strong background in game development, I bring ideas to life with polish and performance in mind.</p>
+        </div>
+        <div class="col-md-6">
+          <img src="your-image.jpg" alt="Don's photo" class="about-img">
+        </div>
       </div>
     </section>
-    <section class="resume-viewer">
-      <h2>Resume</h2>
-      <iframe src="resume.pdf" width="100%" height="600px"></iframe>
+    <section class="my-5 resume-viewer">
+      <h2>View My Resume</h2>
+      <iframe src="resume.pdf"></iframe>
     </section>
-  </main>
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 My Game Design Portfolio</p>
-      <div class="social-links">
-        <a href="https://linkedin.com">LinkedIn</a>
-        <a href="https://github.com">GitHub</a>
-        <a href="https://itch.io">itch.io</a>
+    <footer class="text-center py-4">
+      <div class="footer-icons">
+        <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://yourprofile.itch.io" target="_blank"><i class="fab fa-itch-io"></i></a>
       </div>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+    </footer>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    const app = angular.module('portfolioApp', []);
+    app.controller('MainController', function($scope) {});
+  </script>
 </body>
 </html>

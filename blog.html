@@ -1,31 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="portfolioApp">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Game Design Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Don's Portfolio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+<!-- Removed inline styles -->
+
+    body { padding-top: 70px; }
+    .sticky-top { z-index: 1020; }
+    .blog-entry { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; }
+    .blog-date { font-size: 0.9em; color: #888; margin-bottom: 10px; }
+  
 </head>
-<body>
-  <header>
+<body ng-controller="MainController">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top">
     <div class="container">
-      <h1 class="logo">My Game Design Portfolio</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
+      <a class="navbar-brand" href="#">Don's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item active"><a class="nav-link" href="blog.html">Blog</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
-  <main class="container">
-    <h2>Blog</h2>
-    <article class="blog-post">
-      <h3>Dev Diary</h3>
-      <p>Sample blog post entry.</p>
-    </article>
-  </main>
-  <script src="script.js"></script>
+  </nav>
+  <div class="container my-5" ng-init="blogPosts = [
+    {
+      date: 'June 25, 2025',
+      content: 'Started prototyping a new mechanic involving dynamic terrain deformation. Initial results are promising, though I need to refine the physics interactions.'
+    },
+    {
+      date: 'June 20, 2025',
+      content: 'Wrapped up integration of Unity\'s new input system for all current projects. Took a while to get used to, but it offers a lot more flexibility.'
+    }
+  ]">
+    <h2 class="mb-4">Dev Blog</h2>
+    <div class="blog-entry" ng-repeat="post in blogPosts">
+      <div class="blog-date">Posted on {{post.date}}</div>
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    const app = angular.module('portfolioApp', []);
+    app.controller('MainController', function($scope) {});
+  </script>
 </body>
 </html>
